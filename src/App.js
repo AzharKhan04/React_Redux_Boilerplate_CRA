@@ -1,12 +1,40 @@
 import './App.css';
-
 import React from 'react';
-import Welcome from './Welcome';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import isAuthenticated from './Services/auth.service';
+import routes from './routes';
+
+const getAuth = () => {
+
+    return isAuthenticated();
+}
 
 function App() {
 
     return ( 
-        <Welcome></Welcome> 
+   
+        <BrowserRouter>
+        <Routes>
+            {
+                getAuth() && 
+                routes.privateRoutes.map((route)=>{
+                    return (
+                        <Route path={route.path} element={route.component} />
+                    )
+
+                })
+            }
+            {
+                   routes.publicRoutes.map((route)=>{
+                    return (
+                        <Route path={route.path} element={route.component} />
+                    )
+
+                })
+
+            }
+        </Routes>
+      </BrowserRouter>
     );
 }
 
