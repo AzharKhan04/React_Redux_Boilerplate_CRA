@@ -9,7 +9,7 @@ const Welcome = () => {
         <Grid style={{textAlign:'start'}} container spacing={1}>
         <Grid item xs={12} sm = {12} md={12} lg={12}>
         <Typography variant="h4" gutterBottom component="div">
-        {' Hello there'}
+        {' Hi There ...'}
       </Typography>
  
         </Grid>
