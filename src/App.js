@@ -1,6 +1,7 @@
 import './App.css';
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Suspense } from 'react';
 import isAuthenticated from './Services/auth.service';
 import routes from './routes';
 
@@ -14,6 +15,7 @@ function App() {
     return ( 
    
         <BrowserRouter>
+        <Suspense fallback="loading ...">
         <Routes>
             {
                 getAuth() && 
@@ -34,6 +36,7 @@ function App() {
 
             }
         </Routes>
+        </Suspense>
       </BrowserRouter>
     );
 }

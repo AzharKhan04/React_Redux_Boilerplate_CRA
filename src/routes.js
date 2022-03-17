@@ -1,11 +1,8 @@
-import Welcome from "./Welcome";
+import { lazy } from "react";
 
+const Welcome = lazy(()=>import('./Welcome'));
+const UserLogin = lazy(()=>import('./UserLogin'));
 
-function Login() {
-    return (
-        <div>{'Login page'}</div>
-    )
-}
 const privateRoutes = [
     {
         path:'/',
@@ -17,7 +14,7 @@ const privateRoutes = [
 const publicRoutes = [
     {
         path:'/login',
-        component:<Login/>
+        component:<UserLogin/>
 
     }
 ]
